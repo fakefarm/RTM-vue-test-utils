@@ -4,15 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test":
-      "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/*.spec.js",
-    "watch":
-      "mocha-webpack --webpack-config webpack.config.js --watch --require test/setup.js test/*.spec.js"
+    "test": "mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/*.spec.js",
+    "watch": "mocha-webpack --webpack-config webpack.config.js --watch --require test/setup.js test/*.spec.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^0.28.7",
     "expect": "^21.2.1",
     "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",

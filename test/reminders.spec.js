@@ -25,7 +25,7 @@ describe('Reminders', function() {
     addReminder('learn to test code');
     let deleteBtn = wrapper.find('ul > li:first-child .delete');
     deleteBtn.trigger('click');
-    expect(wrapper.find('ul').vnode.children.length).toBe(1);
+    expect(wrapper.find('ul').text()).not.toContain('clean house');
   });
 
   function addReminder(body) {

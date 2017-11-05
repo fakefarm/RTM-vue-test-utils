@@ -17,15 +17,15 @@ describe('Reminders', function() {
     expect(wrapper.find('ul').text()).toContain('Go to the store');
 
     addReminder('Go to the library');
-    expect(wrapper.find('ul').text()).toContain('Go to the library');
+    expect(remindersList()).toContain('Go to the library');
   });
 
-  it.only('can remove any reminder', () => {
+  it('can remove any reminder', () => {
     addReminder('clean house');
     addReminder('learn to test code');
     let deleteBtn = wrapper.find('ul > li:first-child .delete');
     deleteBtn.trigger('click');
-    expect(wrapper.find('ul').text()).not.toContain('clean house');
+    expect(remindersList()).not.toContain('clean house');
   });
 
   function addReminder(body) {
@@ -33,5 +33,9 @@ describe('Reminders', function() {
     anotherReminder.element.value = body;
     anotherReminder.trigger('input');
     wrapper.find('button').trigger('click');
+  }
+
+  function remindersList() {
+    return wrapper.find('ul').text();
   }
 });

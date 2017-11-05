@@ -6,6 +6,10 @@ describe('CouponCode', function() {
   let wrapper;
   beforeEach(() => {
     wrapper = mount(CouponCode);
+
+    wrapper.setData({
+      coupons: [{ code: '50OFF', message: '50% Off!', discount: '50' }]
+    });
   });
 
   it('accepts a coupon code', function() {

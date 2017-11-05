@@ -1,8 +1,7 @@
 <template lang="html">
   <div class="coupon">
     <input type="text" class="coupon-code" v-model='code' @input='validate'>
-    <p v-if='valid'>Coupon Redeemed: {{ message }}</p>
-    <p v-else>Invalid Coupon Code</p>
+    <p v-text='validation_message'></p>
   </div>
 </template>
 
@@ -11,10 +10,7 @@ export default {
   data() {
     return {
       code: '',
-      coupons: [
-        { code: '50OFF', message: '50% Off!', discount: '50' },
-        { code: 'FREE', message: 'FREEEEE!', discount: '100' }
-      ],
+      coupons: [],
       valid: false
     };
   },
@@ -24,6 +20,12 @@ export default {
     },
     message() {
       return this.selectedCoupon.message;
+    },
+    validation_message() {
+      if (this.valid) {
+        return `Coupon Redeemed: ${this.message}`;
+      }
+      return 'Invalid Coupon Code';
     }
   },
   methods: {
